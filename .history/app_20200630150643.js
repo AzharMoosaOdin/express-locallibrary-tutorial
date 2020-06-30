@@ -3,7 +3,6 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-require("dotenv").config();
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -12,7 +11,8 @@ var catalogRouter = require("./routes/catalog");
 var app = express();
 
 var mongoose = require("mongoose");
-var mongoDB = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.j2kik.mongodb.net/local_library?retryWrites=true&w=majority`;
+var mongoDB =
+  "mongodb+srv://azhar123:azhar123@cluster0.j2kik.mongodb.net/local_library?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
